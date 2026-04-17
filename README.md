@@ -1,133 +1,214 @@
-<div align="center">
-  <br />
-    <a href="https://www.youtube.com/watch?v=AW1yfBKRMKc" target="_blank">
-      <img src="public/readme/hero.png" alt="Project Banner">
-    </a>
-  <br />
+# Velvet Pour Landing Page
 
-   <div>
-    <img src="https://img.shields.io/badge/-React-blue?style=for-the-badge&logo=react&logoColor=white" />
-    <img src="https://img.shields.io/badge/-GSAP-88CE02?style=for-the-badge&logo=greensock&logoColor=white" />
-    <img src="https://img.shields.io/badge/-Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
-  </div>
+A polished React landing page showcasing animated cocktail bar content. This project uses Vite for fast bundling, Tailwind CSS for styling, and GSAP for advanced scroll and text animations.
 
-  <h3 align="center">Stunning GSAP Cocktail Website</h3>
+## Table of Contents
 
-   <div align="center">
-     Build this project step by step with our detailed tutorial on <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery</b></a> YouTube. Join the JSM family!
-    </div>
-</div>
+- [Summary](#summary)
+- [Tech Stack](#tech-stack)
+- [Structure](#structure)
+- [Component Details](#component-details)
+- [Data and Content](#data-and-content)
+- [Styling and Assets](#styling-and-assets)
+- [Getting Started](#getting-started)
+- [Available Scripts](#available-scripts)
+- [How to Customize](#how-to-customize)
+- [Notes](#notes)
 
-## 📋 <a name="table">Table of Contents</a>
+## Summary
 
-1. 🤖 [Introduction](#introduction)
-2. ⚙️ [Tech Stack](#tech-stack)
-3. 🔋 [Features](#features)
-4. 🤸 [Quick Start](#quick-start)
-5. 🔗 [Assets](#links)
-6. 🚀 [More](#more)
+The app renders a multi-section landing page for a cocktail concept called **Velvet Pour**. It combines:
 
-## 🚨 Tutorial
+- animated hero typography and video playback
+- scroll-triggered section transitions
+- an interactive cocktail menu with slide controls
+- responsive layout for desktop and mobile
 
-This repository contains the code corresponding to an in-depth tutorial available on our YouTube channel, <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery</b></a>.
+The page focuses on immersive visuals and motion rather than backend data.
 
-If you prefer visual learning, this is the perfect resource for you. Follow our tutorial to learn how to build projects like these step-by-step in a beginner-friendly manner!
+## Tech Stack
 
-<a href="https://www.youtube.com/watch?v=AW1yfBKRMKc" target="_blank"><img src="https://github.com/sujatagunale/EasyRead/assets/151519281/1736fca5-a031-4854-8c09-bc110e3bc16d" /></a>
+- React 19
+- Vite
+- Tailwind CSS 4
+- GSAP with `@gsap/react`
+- `react-responsive`
 
-## <a name="introduction">🤖 Introduction</a>
+## Structure
 
-Build and deploy a stunning GSAP-powered cocktail website using React and Tailwind CSS—a modern, scroll-driven experience packed with advanced animations. Bring your design to life with dynamic SplitText reveals, smooth parallax scrolling, and scroll-triggered effects using GSAP’s ScrollTrigger. Lock sections in place with pinned animations, sync video playback to scroll position for cinematic storytelling, and enhance visual impact with scroll-based image masking. Create a custom animated carousel, craft seamless timeline animations across sections, and ensure a fully responsive UI that adapts beautifully across all screen sizes.
+### Root Files
 
+- `src/main.jsx`
+  - mounts the React app using `createRoot`
+  - imports global styles from `src/index.css`
+- `src/App.jsx`
+  - registers GSAP plugins (`ScrollTrigger`, `SplitText`)
+  - renders the main application sections
 
-If you're getting started and need assistance or face any bugs, join our active Discord community with over **50k+** members. It's a place where people help each other out.
+### Components
 
-<a href="https://discord.com/invite/n6EdbFJ" target="_blank"><img src="https://github.com/sujatagunale/EasyRead/assets/151519281/618f4872-1e10-42da-8213-1d69e486d02e" /></a>
+- `src/components/Navbar.jsx`
+- `src/components/Hero.jsx`
+- `src/components/Cocktails.jsx`
+- `src/components/About.jsx`
+- `src/components/Art.jsx`
+- `src/components/Menu.jsx`
+- `src/components/Contact.jsx`
 
-## <a name="tech-stack">⚙️ Tech Stack</a>
+### Shared Content
 
+- `constants/index.js`
+  - stores navigation links, cocktail data, feature lists, opening hours, and social links
 
-- **[GSAP](https://gsap.com/)** is a powerful JavaScript animation library used in this project to create dynamic, scroll-driven visuals. Features include SplitText animations for bold text reveals, ScrollTrigger for timeline control, parallax scrolling, pinned sections, scroll-synced video playback, seamless multi-section timelines, image masking effects, and a fully custom animated carousel.
+### Assets
 
-- **[React](https://react.dev/)** is a declarative JavaScript library for building interactive UIs. It provides the component structure for modular development, allowing smooth integration of GSAP animations, reusable logic for scroll behavior, and support for responsive layout and state-driven UI features like carousels and video sections.
+- `public/fonts/` — custom font files
+- `public/images/` — icons, backgrounds, textures, and UI images
+- `public/videos/` — hero background video
 
-- **[Tailwind CSS](https://tailwindcss.com/)** is a utility-first CSS framework that allows developers to design custom user interfaces by applying low-level utility classes directly in HTML, streamlining the design process.
+## Component Details
 
-- **[Vite](https://vitejs.dev/)** is a lightning-fast build tool and development server that powers this project’s workflow. It enables instant hot module replacement, fast startup, and optimized production builds—ideal for an animation-heavy React site with smooth, real-time development feedback and minimal config.
+### `Navbar.jsx`
 
-## <a name="features">🔋 Features</a>
+- Uses `useGSAP` to animate the navigation bar background when scrolling.
+- Contains logo and section navigation links.
+- Navigation targets internal page IDs like `#cocktails`, `#about`, and `#contact`.
 
-👉 **SplitText Animations**: Create impactful text reveals using GSAP’s SplitText for dynamic intros and section highlights.
+### `Hero.jsx`
 
-👉 **ScrollTrigger Effects**: Power scroll-based animations and timeline control with GSAP’s ScrollTrigger.
+- Displays the main headline: `MOJITO`.
+- Uses `SplitText` to animate text characters and lines.
+- Includes a muted video background that progresses based on scroll.
+- Animates decorative leaf images using GSAP scroll triggers.
 
-👉 **Parallax Scrolling**: Add immersive depth with smooth parallax effects that respond to user scroll.
+### `Cocktails.jsx`
 
-👉 **Pinned Sections**: Lock sections in view while animating content for engaging scroll experiences.
+- Shows two lists: popular cocktails and mocktails.
+- Maps data from `constants/cocktailLists` and `constants/mockTailLists`.
+- Adds parallax motion to leaf accents while scrolling.
 
-👉 **Scroll-Synced Video Playback**: Sync video progress with scroll position for cinematic storytelling.
+### `About.jsx`
 
-👉 **Image Masking Effects**: Use scroll-triggered pins and masks for visually striking image transitions.
+- Introduces the brand story and values.
+- Animates heading and image grid elements into view.
+- Displays customer rating and review summary.
 
-👉 **Custom Carousel**: Build a fully customized carousel with multiple navigation options and animated slides.
+### `Art.jsx`
 
-👉 **Seamless Timeline Animations**: Craft smooth animation timelines that span across multiple sections.
+- Highlights the creative bar experience.
+- Renders two lists of qualities from shared constant arrays.
+- Uses scroll-triggered masking and fade animations.
+- Includes a masked cocktail image reveal effect.
 
-👉 **Responsive Design**: Ensure fluid UI and adaptive GSAP animations across all screen sizes.
+### `Menu.jsx`
 
-And many more, including enhanced security and optimized video performance!
+- Implements an interactive cocktail carousel.
+- Allows users to switch between cocktails using navigation buttons and tabs.
+- Uses React state to manage the selected cocktail index.
+- Animates image and text transitions with GSAP.
 
+### `Contact.jsx`
 
-## <a name="quick-start">🤸 Quick Start</a>
+- Displays location, contact details, opening times, and socials.
+- Animates section copy and leaf graphics on scroll.
+- Uses shared constants for opening hours and social icons.
 
-Follow these steps to set up the project locally on your machine.
+## Data and Content
 
-**Prerequisites**
+The application content is centralized in `constants/index.js`.
 
-Make sure you have the following installed on your machine:
+Key exported arrays and objects:
 
-- [Git](https://git-scm.com/)
-- [Node.js](https://nodejs.org/en)
-- [npm](https://www.npmjs.com/) (Node Package Manager)
+- `navLinks` — section navigation items
+- `cocktailLists` — popular cocktail menu items
+- `mockTailLists` — mocktail menu items
+- `featureLists` / `goodLists` — highlights for the Art section
+- `openingHours` — footer business hours
+- `socials` — social link icons and URLs
+- `allCocktails` — menu slider entries with images and descriptions
 
-**Cloning the Repository**
+This makes it simple to update copy, prices, and section content without editing component logic.
 
-```bash
-git clone https://github.com/adrianhajdin/gsap_cocktails.git
-cd gsap_cocktails
-```
+## Styling and Assets
 
-**Installation**
+### `src/index.css`
 
-Install the project dependencies using npm:
+- imports Google fonts and Tailwind CSS
+- defines custom theme CSS variables and utilities
+- styles layout, grid behavior, and custom classes used across components
+- contains component-level selectors under `@layer components`
+
+### Public Assets
+
+- fonts are loaded from `public/fonts/`
+- images in `public/images/` include leaves, drink photos, icons, and decorative textures
+- video background is loaded from `public/videos/output.mp4`
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18 or newer
+- npm
+
+### Install
 
 ```bash
 npm install
 ```
 
-**Running the Project**
+### Run Development Server
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) in your browser to view the project.
+Then open the local URL shown in the terminal.
 
-## <a name="links">🔗 Assets</a>
+## Available Scripts
 
-Assets and snippets used in the project can be found in the **[Video Kit](https://jsm.dev/cocktail-kit)**.
+- `npm run dev` — start Vite development server
+- `npm run build` — create a production build
+- `npm run preview` — preview the production build locally
+- `npm run lint` — run ESLint across the project
 
-<a href="https://jsm.dev/cocktail-kit" target="_blank">
-  <img src="public/readme/videokit.png" alt="Video Kit Banner">
-</a>
+## How to Customize
 
-## <a name="more">🚀 More</a>
+### Update text and menu content
 
-**Advance your skills with Next.js Pro Course**
+Edit `constants/index.js`:
 
-Enjoyed creating this project? Dive deeper into our PRO courses for a richer learning adventure. They're packed with
-detailed explanations, cool features, and exercises to boost your skills. Give it a go!
+- change `navLinks` titles and IDs
+- update `cocktailLists` or `mockTailLists`
+- modify `allCocktails` images, names, and descriptions
+- adjust `openingHours` and `socials`
 
-<a href="https://jsm.dev/cocktail-nextjs" target="_blank">
-  <img src="public/readme/jsmpro.png" alt="Project Banner">
-</a>
+### Change animations
+
+Edit component animation hooks in:
+
+- `src/components/Hero.jsx`
+- `src/components/Cocktails.jsx`
+- `src/components/About.jsx`
+- `src/components/Art.jsx`
+- `src/components/Menu.jsx`
+- `src/components/Contact.jsx`
+
+### Adjust styling
+
+Edit `src/index.css`:
+
+- change theme variables under `@theme`
+- add or modify Tailwind utilities
+- update component style blocks inside `@layer components`
+
+## Notes
+
+- The app relies entirely on frontend rendering and static assets.
+- `SplitText` is used for text animation and is imported from `gsap/all`.
+- The `Menu` component uses a circular index system to keep slide navigation continuous.
+- Some links in `constants/index.js` are placeholders and can be replaced with real URLs.
+
+---
+
+For deeper changes, start by editing the content in `constants/index.js` and then adjust section-specific styles or animation timelines as needed.
