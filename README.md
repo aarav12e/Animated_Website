@@ -213,4 +213,5 @@ Edit `src/index.css`:
 
 For deeper changes, start by editing the content in `constants/index.js` and then adjust section-specific styles or animation timelines as needed.
 
-give a Star ⭐ if you like 
+Give a Star ⭐ if you like 
+Fork the Repo to Modify on your own way
